@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Конструктор листа — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+
+<!-- ============================================================
+     Стили БЛОКОВ ЛИСТА. Этот <style> целиком (textContent)
+     переносится в сохраняемый page.html, поэтому здесь нет ни
+     одного правила панели конструктора и никакой зависимости от
+     неё. Здесь только стили БЛОКОВ, которых нет в ../assets/pages.css:
+     перенесены один-в-один из инлайновых <style> страниц-референсов
+     (month/graphs.html, month/habits.html, month/screentime.html,
+     month/stats.html) — при правке референса синхронизировать вручную.
+     Общие классы (.sec .tbl .cells .leg .blank .ln .sw .row), правила
+     печати и переменные палитры живут в ../assets/pages.css — его
+     подключает и конструктор, и сохранённый файл, поэтому копировать
+     их сюда нельзя (см. AGENTS.md): любой дубль при первой правке
+     pages.css молча разъехался бы с оригиналом.
+     ============================================================ -->
+<style id="sheet-style">
+  /* плотность листа конструктора (как в month/habits.html) */
+  .canvas { gap: 4mm; }
+  /* блоки не должны сжиматься, если не влезают: иначе переполнение
+     не видно глазу, а на бумаге всё равно обрежется */
+  .canvas > * { flex: 0 0 auto; }
+
+  /* ---------- блоки-графики (как в month/graphs.html) ---------- */
+  .chart {
+    display: grid;
+    grid-template-columns: 5.5mm 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 3px;
+    row-gap: 2px;
+  }
+  .ax {
+    height: calc(var(--h) + 3px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .ax .axv { height: 0; line-height: 0; font-size: 7px; color: var(--muted); }
+  .plot {
+    position: relative;
+    height: var(--h);
+    border: 1.4px solid var(--line-strong);
+    background-color: #fff;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--line) 0 1px,
+      transparent 1px calc(var(--h) / var(--n))
+    );
+  }
+  .strip {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    border-left: 1.4px solid transparent;
+    border-right: 1.4px solid transparent;
+  }
+  .strip .srow { display: flex; }
+  .strip .srow > span { flex: 1; text-align: center; }
+  .strip .sl { height: 8px; border-bottom: 1.2px dotted var(--line-strong); }
+  .strip .sd { height: 8px; line-height: 8px; font-size: 6.5px; color: #6f6858; }
+  .crow { display: flex; align-items: center; gap: 5px; margin-top: 4px; font-size: 8.5px; }
+  .crow .key { flex: none; width: 15px; height: 0; border-top: 2px solid var(--ac, var(--c-orange)); }
+  .crow .key.dash { border-top-style: dotted; }
+  .crow .ln { height: 13px; }
+  .symrow { display: flex; align-items: center; gap: 8px; margin-top: 3px; font-size: 8.5px; color: #6f6858; }
+  .symrow .s { font-size: 11px; }
+
+  /* ---------- таблица-трекер (как в month/habits.html) ---------- */
+  .hab { table-layout: fixed; }
+  .hab th.dnum { padding: 1px 0; font-size: 6px; font-weight: 500; }
+  .hab th.lbl { text-align: left; width: 26mm; font-size: 7.5px; }
+  .hab td { height: 27px; padding: 0; }
+  .hab td.lbl {
+    font-size: 8.5px;
+    padding: 2px 5px;
+    background: #fbf8f0;
+    font-weight: 600;
+  }
+  .hab td.sum { background: #f4efe3; }
+
+  /* ---------- сетка клеток (как в month/screentime.html) ---------- */
+  .sec .cells { margin-top: 6px; }
+
+  /* ---------- мини-календари (как в month/stats.html) ---------- */
+  .minis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm 4.5mm;
+  }
+  .mini {
+    border: 1.4px solid var(--line-strong);
+    border-radius: 9px;
+    padding: 5px 7px 6px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .mini .ttl {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--ac, var(--c-green));
+  }
+  .mini .ttl .sw { width: 11px; height: 11px; border-radius: 3px; }
+  .mc { display: flex; flex-direction: column; gap: 1.5px; }
+  .mc-head, .mc-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1.5px;
+  }
+  .mc-head .mh {
+    text-align: center;
+    font-size: 5.5px; font-weight: 600;
+    text-transform: uppercase;
+    color: #98917f;
+  }
+  .mc-head .mh.wk { color: #b06a55; }
+  .mc-c {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    height: 5.9mm;
+    background: #fff;
+  }
+  .mc-c.wk { background: #fbf8f0; }
+  .mini .foot {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 8px; color: #6f6858;
+  }
+  .mini .foot .b {
+    display: inline-block;
+    min-width: 7mm;
+    border-bottom: 1.3px solid var(--line-strong);
+    height: 12px;
+  }
+</style>
+
+<!-- ---------- стили экрана конструктора (в экспорт НЕ попадают) ---------- -->
+<style>
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 18px 40px;
+  }
+
+  .panel {
+    flex: 1 1 296px;
+    max-width: 380px;
+    background: var(--paper);
+    border: 1.5px solid var(--line-strong);
+    border-radius: 12px;
+    padding: 14px 16px 16px;
+    font-size: 13px;
+    position: sticky;
+    top: 52px;
+  }
+  .panel h2 { margin: 0 0 2px; font-size: 15px; }
+  .panel .sub { margin: 0 0 12px; color: var(--muted); font-size: 11.5px; }
+  .panel h3 {
+    margin: 16px 0 8px;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-blue);
+  }
+
+  .f { display: block; margin-bottom: 9px; }
+  .f span { display: block; font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .f input {
+    width: 100%;
+    font: inherit;
+    padding: 6px 8px;
+    border: 1.4px solid var(--line-strong);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+  }
+  .f input:focus { outline: 2px solid var(--c-blue); outline-offset: 1px; }
+
+  .btns { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 8px; }
+  .btns button {
+    color: #fff;
+    background: #5a5347;
+    border: 0;
+    border-radius: 20px;
+    padding: 6px 13px;
+    font: inherit;
+    cursor: pointer;
+  }
+  .btns button:hover { background: #3a352e; }
+  .btns button.ghost { background: #fff; color: #5a5347; border: 1.4px solid var(--line-strong); }
+  .btns button.ghost:hover { background: #f4efe3; }
+
+  .tip {
+    margin: 8px 0 0;
+    font-size: 11.5px;
+    color: #6f6858;
+    background: #f4efe3;
+    border-radius: 8px;
+    padding: 7px 9px;
+  }
+  .tip code { background: #fff; padding: 0 3px; border-radius: 4px; }
+
+  /* индикатор заполнения листа */
+  .gauge { border: 1.4px solid var(--line-strong); border-radius: 10px; padding: 9px 10px; background: #fff; }
+  .gauge .num { font-size: 13px; font-weight: 700; }
+  .gauge .num i { font-style: normal; color: var(--muted); font-weight: 400; }
+  .gauge .track { height: 8px; border-radius: 5px; background: #f4efe3; overflow: hidden; margin: 7px 0 5px; }
+  .gauge .fill { display: block; height: 100%; width: 0; background: var(--g); transition: width .12s; }
+  .gauge.warn .fill { background: var(--y); }
+  .gauge .brk { font-size: 11px; color: var(--muted); }
+  .gauge .warnmsg {
+    display: none;
+    margin: 7px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #b06a55;
+  }
+  .gauge.warn .warnmsg { display: block; }
+  .gauge.over { border-color: #b06a55; }
+  .gauge.over .fill { background: var(--r); }
+
+  /* палитра блоков */
+  .palette { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .palette li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.4px solid var(--line);
+    border-radius: 9px;
+    padding: 7px 9px;
+    background: #fff;
+  }
+  .palette .pinfo { flex: 1; min-width: 0; }
+  .palette b { display: block; font-size: 12.5px; }
+  .palette small { display: block; color: var(--muted); font-size: 11px; }
+  .palette button {
+    flex: none;
+    font: inherit;
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1.4px solid var(--line-strong);
+    border-radius: 16px;
+    background: #fffdf8;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .palette button:hover { background: var(--g); border-color: var(--c-green); }
+
+  /* список «что на листе» */
+  .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .list li {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1.4px solid var(--line-strong);
+    border-left: 4px solid var(--ac, var(--c-green));
+    border-radius: 9px;
+    padding: 6px 8px;
+    background: #fff;
+    font-size: 12.5px;
+  }
+  .list .nm { flex: 1; min-width: 0; }
+  .list .nm small { display: block; color: var(--muted); font-size: 11px; }
+  .list .hgt { flex: none; color: var(--muted); font-size: 11px; white-space: nowrap; }
+  .list button {
+    flex: none;
+    width: 26px; height: 26px;
+    font-size: 13px;
+    line-height: 1;
+    border: 1.4px solid var(--line-strong);
+    border-radius: 7px;
+    background: #fffdf8;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .list button:hover { background: #f4efe3; }
+  .list button:disabled { opacity: .35; cursor: default; }
+  .list button.del:hover { background: var(--r); border-color: #b06a55; }
+  .empty { margin: 0; font-size: 12px; color: var(--muted); font-style: italic; }
+
+  /* страховка от неточности констант: лист реально переполнен */
+  .page.is-over { outline: 2.5px solid #b06a55; outline-offset: -2.5px; }
+
+  /* лист не должен ползти из-за панели */
+  .wrap .sheet { margin: 12px 0 0; }
+
+  /* ---------- печать: только лист ---------- */
+  @media print {
+    .wrap { display: block; padding: 0; }
+    .page.is-over { outline: 0; }
+    /* Локальное экранное .wrap .sheet { margin: 12px 0 0 } — селектор
+       (0,2,0), он перебивает печатное .sheet { margin: 0 } из pages.css
+       (0,1,0), и лист стартует на 12px ниже нуля. Медиаскоуп специфичность
+       не меняет: то же число классов внутри @media print выигрывает так же
+      надёжно — на бумаге маржин листа гарантированно нулевой. */
+    .wrap .sheet { margin: 0; }
+  }
+
+  /* ---------- миниатюра в iframe (index.html) ---------- */
+  /* Явно перечислены только правила, конфликтующие с локальным хромом
+     конструктора. Фон body, скрытие .bar и «html.thumb-root .page {
+     box-shadow: none }» уже даёт assets/pages.css — локальных правил,
+     которые бы с ними конфликтовали, здесь нет, поэтому не дублируем. */
+  html.thumb-root .wrap { display: block; padding: 0; margin: 0; }
+  html.thumb-root .panel { display: none; }
+  /* перебивает локальное .wrap .sheet { margin: 12px 0 0 } (3 класса > 2) */
+  html.thumb-root .wrap .sheet { margin: 0; }
+  html.thumb-root body { overflow: hidden; }
+  html.thumb-root .page.is-over { outline: 0; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<main class="wrap">
+  <aside class="panel no-print">
+    <h2>Конструктор листа</h2>
+    <p class="sub">Собери свой лист A5 из готовых частей: сверху вниз, как нужно.</p>
+
+    <label class="f"><span>Заголовок листа</span>
+      <input id="f-title" type="text" maxlength="48" autocomplete="off" placeholder="Например: Мой месяц">
+    </label>
+    <label class="f"><span>Подпись периода</span>
+      <input id="f-period" type="text" maxlength="48" autocomplete="off" placeholder="Например: октябрь · 2026 г.">
+    </label>
+
+    <div class="btns">
+      <button id="b-print" type="button">Печать A5</button>
+      <button id="b-save" type="button">Скачать HTML</button>
+      <button id="b-reset" type="button" class="ghost">Сбросить</button>
+    </div>
+
+    <div class="gauge" id="gauge" role="status" aria-live="polite">
+      <div class="num" id="gauge-num">Замерим, когда отрисуем лист</div>
+      <div class="track"><span class="fill" id="gauge-fill"></span></div>
+      <div class="brk" id="gauge-brk"></div>
+      <p class="warnmsg" id="gauge-warn"></p>
+    </div>
+
+    <h3>Добавить блок</h3>
+    <ul class="palette" id="palette"></ul>
+
+    <h3>Что на листе</h3>
+    <ol class="list" id="list"></ol>
+    <p class="empty" id="empty">Лист пуст — добавь блок из палитры выше.</p>
+
+    <p class="tip">Сохранённый файл <code>page.html</code> положи в папку <code>custom/</code>:
+      он использует общие <code>assets/pages.css</code> и генератор <code>assets/grid.js</code>,
+      поэтому печатается как обычная страница дневника.</p>
+  </aside>
+
+  <div class="sheet">
+    <section class="page" id="page">
+      <aside class="rail"><i></i><i></i><i></i></aside>
+      <div class="canvas" id="canvas" style="--ac: var(--c-green)">
+        <header class="ph">
+          <div>
+            <div class="kick">Месяц</div>
+            <h1 id="sheet-title">Мой лист</h1>
+          </div>
+          <div class="meta" id="sheet-meta"></div>
+        </header>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="builder.js"></script>
+</body>
+</html>
