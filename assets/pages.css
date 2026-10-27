@@ -1,0 +1,292 @@
+/* ============================================================
+   Бумажный дневник A5 — общие стили макетов страниц.
+   Это НЕ веб-приложение: каждая .page = лист A5 (148×210мм),
+   который нужно перерисовать от руки. HTML — только образец.
+   ============================================================ */
+
+:root {
+  --paper: #fffdf8;
+  --ink: #3a352e;
+  --muted: #98917f;
+  --line: #ded7c8;
+  --line-strong: #b7ae9b;
+
+  /* цвета-результаты для трекеров (пастель, под цветные ручки) */
+  --g: #cdeccd;   /* зелёный  — цель выполнена */
+  --y: #ffe9a8;   /* жёлтый   — норм / средний уровень */
+  --r: #f4b9b3;   /* красный  — превышение */
+  --b: #cfe0f5;   /* синий    / отдых */
+  --p: #ecd3ee;   /* розовый  */
+
+  /* акценты разделов */
+  --c-green: #4a7c59;
+  --c-blue: #3e6b9e;
+  --c-orange: #b06f2e;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  background: #e9e6df;
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, "Noto Sans", sans-serif;
+}
+
+/* ---------- панель у страницы (не печатается) ---------- */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  font-size: 13px;
+}
+.bar a, .bar button {
+  color: #fff;
+  background: #5a5347;
+  border: 0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.bar a:hover, .bar button:hover { background: #3a352e; }
+
+/* ---------- лист A5 ---------- */
+.sheet {
+  width: 148mm;
+  margin: 12px auto 40px;
+}
+.page {
+  position: relative;
+  display: flex;
+  width: 148mm;
+  height: 210mm;
+  background: var(--paper);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .18);
+  overflow: hidden;
+}
+
+/* зона колец: слева поле под дырки от колец */
+.rail {
+  flex: 0 0 12mm;
+  position: relative;
+}
+.rail::after {
+  content: "";
+  position: absolute;
+  top: 6mm; bottom: 6mm; right: 2.6mm;
+  border-left: 1px dashed #d8d0bd;
+}
+.rail i {
+  position: absolute;
+  left: 50%;
+  width: 4mm; height: 4mm;
+  margin-left: -2mm;
+  border: 1.4px dashed #cfc7b4;
+  border-radius: 50%;
+  background: #f3efe6;
+}
+.rail i:nth-of-type(1) { top: 18%; }
+.rail i:nth-of-type(2) { top: 50%; margin-top: -2mm; }
+.rail i:nth-of-type(3) { top: 82%; margin-top: -4mm; }
+
+.canvas {
+  flex: 1;
+  min-width: 0;
+  padding: 7mm 7mm 6mm 3mm;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+}
+
+/* ---------- шапка страницы ---------- */
+.ph {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--ink);
+}
+.ph .kick {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ac, var(--c-green));
+}
+.ph h1 {
+  margin: 1px 0 0;
+  font-size: 17px;
+  letter-spacing: .02em;
+}
+.ph .meta {
+  font-size: 10px;
+  color: #6f6858;
+  white-space: nowrap;
+}
+
+/* ---------- вспомогательные элементы ---------- */
+.hint {
+  font-size: 8.5px;
+  color: var(--muted);
+  font-style: italic;
+}
+.blank {
+  display: inline-block;
+  min-width: 16mm;
+  border-bottom: 1.3px solid var(--ink);
+  height: 14px;
+  vertical-align: bottom;
+}
+.ln {                       /* пунктирная линия «подпись» */
+  flex: 1;
+  height: 15px;
+  border-bottom: 1.4px dotted var(--line-strong);
+}
+.box {                      /* чекбокс */
+  flex: none;
+  width: 12px; height: 12px;
+  border: 1.4px solid var(--line-strong);
+  border-radius: 3px;
+  background: #fff;
+}
+.sw {                       /* цветовой образец легенды */
+  flex: none;
+  width: 15px; height: 15px;
+  border: 1.3px solid var(--line-strong);
+  border-radius: 4px;
+  background: #fff;
+}
+.row { display: flex; align-items: center; gap: 6px; }
+
+/* ---------- секция с заголовком ---------- */
+.sec {
+  border: 1.4px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 8px 10px 10px;
+  background: #fff;
+}
+.sec > h2 {
+  margin: -1px 0 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ac, var(--c-blue));
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sec > h2::before {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  background: var(--ac, var(--c-blue));
+  opacity: .55;
+}
+
+/* ---------- таблицы ---------- */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.tbl th {
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #6f6858;
+  background: #f4efe3;
+  border: 1px solid var(--line);
+  padding: 3px 4px;
+}
+.tbl td {
+  border: 1px solid var(--line);
+  height: 24px;
+  font-size: 9px;
+  padding: 2px 5px;
+  vertical-align: top;
+}
+.tbl td.c, .tbl th.c { text-align: center; }
+.tbl tr.ex td {
+  color: #beb5a2;
+  font-style: italic;
+  background: #fbf8f1;
+}
+.stars { color: #c8a13d; letter-spacing: 1px; }
+
+/* ---------- сетки-клетки (трекеры) ---------- */
+.cells {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2.5px;
+}
+.cell {
+  position: relative;
+  border: 1.3px solid var(--line-strong);
+  border-radius: 6px;
+  background: #fff;
+  min-height: 13mm;
+}
+.cell .d {
+  position: absolute;
+  top: 2px; left: 4px;
+  font-size: 7px;
+  color: var(--muted);
+}
+
+/* ---------- легенда ---------- */
+.leg { display: flex; flex-direction: column; gap: 5px; }
+.leg .row { font-size: 9px; }
+.leg .row b { font-weight: 600; }
+
+/* ---------- календарь ---------- */
+.cal {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.cal th {
+  font-size: 8px;
+  font-weight: 600;
+  color: #6f6858;
+  text-transform: uppercase;
+  padding: 2px 0 4px;
+}
+.cal th.wk { color: #b06a55; }
+.cal td {
+  border: 1px solid var(--line);
+  height: 12mm;
+  vertical-align: top;
+  font-size: 7.5px;
+  color: #c5bdab;
+  padding: 2px 3px;
+}
+
+/* ---------- режим предпросмотра в index (в iframe) ---------- */
+html.thumb-root body { background: var(--paper); }
+html.thumb-root .bar { display: none; }
+html.thumb-root .sheet { margin: 0; }
+html.thumb-root .page { box-shadow: none; }
+
+/* ---------- печать ---------- */
+@page { size: A5 portrait; margin: 0; }
+@media print {
+  body { background: none; }
+  .no-print { display: none !important; }
+  .sheet { margin: 0; }
+  .page { box-shadow: none; }
+}

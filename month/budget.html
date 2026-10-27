@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Бюджет месяца — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+  .tbl td { height: 21px; }
+  .tbl th.money { width: 20mm; }
+  .tbl td.money { background: #fbf8f0; }
+  .totals {
+    display: flex;
+    gap: 3mm;
+    align-items: stretch;
+  }
+  .tbox {
+    flex: 1;
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    padding: 5px 8px;
+    font-size: 9px;
+    text-align: center;
+  }
+  .tbox b { display: block; font-size: 10px; }
+  .tbox .fill { display: block; border-bottom: 1.3px solid var(--ink); height: 16px; margin-top: 3px; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц · Финансы</div>
+          <h1>Бюджет месяца</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:22mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac:#4a7c59">
+        <h2>Доходы</h2>
+        <table class="tbl">
+          <colgroup><col><col style="width:20mm"><col style="width:20mm"></colgroup>
+          <thead><tr><th>Источник</th><th class="c money">План</th><th class="c money">Факт</th></tr></thead>
+          <tbody>
+            <tr><td>Зарплата</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Подработка / фриланс</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Подарки, возврата</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="sec" style="--ac:#b06f2e">
+        <h2>Расходы по категориям</h2>
+        <table class="tbl">
+          <colgroup><col><col style="width:20mm"><col style="width:20mm"></colgroup>
+          <thead><tr><th>Категория</th><th class="c money">План</th><th class="c money">Факт</th></tr></thead>
+          <tbody>
+            <tr><td>Жильё и коммуналка</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Продукты</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Кафе и рестораны</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Транспорт</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Здоровье</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Быт и гигиена</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Подписки и связь</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Развлечения</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Одежда</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>Долги и переводы</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
+            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="totals">
+        <div class="tbox"><b>Доходы</b><span class="fill"></span></div>
+        <div class="tbox" style="flex:none;align-self:center;border:0;background:none;font-size:13px">−</div>
+        <div class="tbox"><b>Расходы</b><span class="fill"></span></div>
+        <div class="tbox" style="flex:none;align-self:center;border:0;background:none;font-size:13px">=</div>
+        <div class="tbox" style="border-color:var(--c-green)"><b>Остаток ±</b><span class="fill"></span></div>
+      </div>
+
+      <div class="row" style="font-size:9px">Отложить в копилку: <span class="blank" style="min-width:24mm"></span> · лучшая покупка месяца: <span class="blank" style="min-width:34mm"></span></div>
+
+      <p class="hint">Вписывай суммы раз в неделю (например, воскресенье). «План» — сколько хочу потратить, «Факт» — сколько вышло. Постоянные категории не меняются, пустые строки — под разовое.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

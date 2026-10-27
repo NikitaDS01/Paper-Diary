@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Чтение за месяц — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .cell { min-height: 16.5mm; }
+  .cell.pg::after {
+    content: "стр.";
+    position: absolute;
+    left: 4px; right: 4px; bottom: 2px;
+    font-size: 6.5px;
+    color: #c5bdab;
+    text-align: right;
+    border-bottom: 1.3px dotted var(--line-strong);
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц · Отдых</div>
+          <h1>Чтение: страницы по дням</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:22mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac:#4a7c59">
+        <h2>Мои диапазоны страниц — впиши и закрась</h2>
+        <div class="leg">
+          <div class="row"><span class="sw" style="background:var(--g)"></span><span class="blank" style="min-width:12mm"></span>–<span class="blank" style="min-width:12mm"></span> стр. — <span class="blank" style="min-width:42mm"></span></div>
+          <div class="row"><span class="sw" style="background:var(--y)"></span><span class="blank" style="min-width:12mm"></span>–<span class="blank" style="min-width:12mm"></span> стр. — <span class="blank" style="min-width:42mm"></span></div>
+          <div class="row"><span class="sw" style="background:var(--r)"></span><span class="blank" style="min-width:12mm"></span>–<span class="blank" style="min-width:12mm"></span> стр. — <span class="blank" style="min-width:42mm"></span></div>
+          <div class="row"><span class="sw"></span><span class="blank" style="min-width:12mm"></span>–<span class="blank" style="min-width:12mm"></span> стр. — <span class="blank" style="min-width:42mm"></span></div>
+        </div>
+      </section>
+
+      <div class="cells" data-cells="31" data-cell="pg"></div>
+
+      <section class="sec" style="--ac:#4a7c59">
+        <h2>Итоги</h2>
+        <div class="row" style="font-size:9px; gap:4mm; flex-wrap:wrap">
+          <span>Всего: <span class="blank" style="min-width:14mm"></span> стр.</span>
+          <span>Дней с чтением: <span class="blank" style="min-width:10mm"></span></span>
+          <span>Рекорд: <span class="blank" style="min-width:10mm"></span> стр.</span>
+        </div>
+      </section>
+
+      <p class="hint">В клетку дня впиши число прочитанных страниц и закрась фон цветом диапазона. Не читал — клетка остаётся пустой. Даты начала и финиша книг — на годовом листе «Книги».</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

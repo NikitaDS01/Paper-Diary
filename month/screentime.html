@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Экранное время — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .cells { gap: 3px; }
+  .cell { min-height: 17.5mm; }
+  .totals .row { height: 7.5mm; }
+  .cnt {
+    flex: none; width: 12mm;
+    border-bottom: 1.3px solid var(--ink);
+    height: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-orange)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц · Здоровье</div>
+          <h1>Экранное время в телефоне</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:22mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac:#b06f2e">
+        <h2>Цвета — закрась клетку дня целиком</h2>
+        <div class="leg">
+          <div class="row"><span class="sw" style="background:var(--g)"></span><b>меньше 2 ч</b> — победа дня</div>
+          <div class="row"><span class="sw" style="background:var(--y)"></span><b>2–5 ч</b> — нормально</div>
+          <div class="row"><span class="sw" style="background:var(--r)"></span><b>5 ч и больше</b> — слишком много</div>
+        </div>
+        <p class="hint" style="margin:6px 0 0">Границы диапазона можешь менять под себя — записи свои цвета рядом.</p>
+      </section>
+
+      <div class="cells" data-cells="31"></div>
+
+      <section class="sec totals" style="--ac:#b06f2e">
+        <h2>Итоги месяца</h2>
+        <div class="row"><span class="sw" style="background:var(--g)"></span>зелёных дней <span class="cnt"></span> · это <span class="cnt"></span>% месяца</div>
+        <div class="row"><span class="sw" style="background:var(--y)"></span>жёлтых дней <span class="cnt"></span></div>
+        <div class="row"><span class="sw" style="background:var(--r)"></span>красных дней <span class="cnt"></span></div>
+      </section>
+
+      <p class="hint">Считай время по экрану «Экранное время» в телефоне раз в вечер. Цель месяца: <span class="blank" style="min-width:26mm"></span> зелёных дней.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

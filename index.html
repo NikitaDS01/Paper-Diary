@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бумажный дневник A5 — набор страниц</title>
+<style>
+  :root {
+    --ink: #3a352e;
+    --muted: #8b8477;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #e9e6df;
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, "Noto Sans", sans-serif;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  header.hero h1 { margin: 0 0 6px; font-size: 26px; }
+  header.hero p.sub { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .rules {
+    background: #fffdf8;
+    border: 1.5px solid #d8d0bd;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .rules b { color: #4a7c59; }
+  .rules ul { margin: 6px 0 0; padding-left: 20px; }
+
+  h2.group {
+    margin: 34px 0 14px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 6px;
+  }
+  h2.group span { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
+    gap: 22px;
+  }
+  .card { text-decoration: none; color: inherit; display: block; }
+  .thumb {
+    display: block;
+    width: calc(148mm * .32);
+    height: calc(210mm * .32);
+    margin: 0 auto;
+    overflow: hidden;
+    background: #fffdf8;
+    border: 1px solid #cfc7b4;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    line-height: 0;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .card:hover .thumb { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+  .thumb iframe {
+    width: 148mm;
+    height: 210mm;
+    border: 0;
+    transform: scale(.32);
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+  .card b { display: block; margin-top: 10px; font-size: 14px; text-align: center; }
+  .card small { display: block; color: var(--muted); font-size: 11.5px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>Бумажный дневник A5 · набор страниц</h1>
+    <p class="sub">HTML-макеты для перерисовки от руки в дневник на кольцах. Каждая страница — лист A5 (148×210&nbsp;мм), вертикальный.</p>
+    <div class="rules">
+      <b>Как пользоваться</b>
+      <ul>
+        <li>Открой страницу → перерисуй разметку от руки (линейка + цветные ручки). Печать A5 тоже есть — но рисовать веселее.</li>
+        <li>Пунктир «……» — место для твоей надписи; серые строки и курсив — примеры заполнения, на бумаге их не рисуй.</li>
+        <li>Цвет = результат: каждый трекер имеет легенду, значения диапазонов вписывай сам.</li>
+        <li>Поле слева с кружочками — отступ под кольца, на бумаге оставляй пустым.</li>
+        <li>Страницы вертикальные и независимые: порядок в кольцах меняй как удобно, дублируй нужные (месячных много на год).</li>
+      </ul>
+    </div>
+  </header>
+
+  <h2 class="group">Год <span>— 1 раз на год</span></h2>
+  <div class="grid">
+    <a class="card" href="year/goals.html">
+      <span class="thumb"><iframe src="year/goals.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Цели на год</b><small>5 карточек: цель · результат · шаги</small>
+    </a>
+    <a class="card" href="year/events.html">
+      <span class="thumb"><iframe src="year/events.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Важные события</b><small>по 2 строки на каждый месяц</small>
+    </a>
+    <a class="card" href="year/books.html">
+      <span class="thumb"><iframe src="year/books.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Прочитанные книги</b><small>название · автор · даты · ★1–5</small>
+    </a>
+    <a class="card" href="year/media.html">
+      <span class="thumb"><iframe src="year/media.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Фильмы и сериалы</b><small>два списка на одной странице · ★1–5</small>
+    </a>
+    <a class="card" href="year/manga.html">
+      <span class="thumb"><iframe src="year/manga.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Манга и манхва</b><small>дата финиша · ★1–5</small>
+    </a>
+  </div>
+
+  <h2 class="group">Месяц <span>— распечатай/перерисуй 12 комплектов</span></h2>
+  <div class="grid">
+    <a class="card" href="month/overview.html">
+      <span class="thumb"><iframe src="month/overview.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Обзор и план месяца</b><small>календарь · задачи · события</small>
+    </a>
+    <a class="card" href="month/habits.html">
+      <span class="thumb"><iframe src="month/habits.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Трекер привычек</b><small>вода, дневник, чтение + свои строки</small>
+    </a>
+    <a class="card" href="month/screentime.html">
+      <span class="thumb"><iframe src="month/screentime.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Экранное время</b><small>цвета: &lt;2 ч / 2–5 ч / 5+ ч</small>
+    </a>
+    <a class="card" href="month/reading.html">
+      <span class="thumb"><iframe src="month/reading.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Чтение по дням</b><small>страницы + закраска диапазона</small>
+    </a>
+    <a class="card" href="month/budget.html">
+      <span class="thumb"><iframe src="month/budget.html" tabindex="-1" loading="lazy"></iframe></span>
+      <b>Бюджет месяца</b><small>доходы · расходы · план/факт</small>
+    </a>
+  </div>
+</div>
+</body>
+</html>

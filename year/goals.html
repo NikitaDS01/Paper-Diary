@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Цели на год — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .goals { display: flex; flex-direction: column; gap: 5.5mm; flex: 1; }
+  .goal {
+    flex: 1;
+    border: 1.4px solid var(--line-strong);
+    border-left: 5px solid var(--gc, #999);
+    border-radius: 10px;
+    background: #fff;
+    padding: 6px 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 3px;
+  }
+  .goal .head { display: flex; align-items: center; gap: 8px; }
+  .goal .num {
+    flex: none;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--gc, #999);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .goal .tag {
+    flex: none;
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: 34mm;
+  }
+  .goal li { list-style: none; display: flex; align-items: center; gap: 6px; }
+  .goal ul { margin: 0; padding: 0; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-orange)">
+      <header class="ph">
+        <div>
+          <div class="kick">Год</div>
+          <h1>Цели на <span class="blank" style="min-width:14mm"></span> год</h1>
+        </div>
+        <div class="meta">составлено <span class="blank" style="min-width:20mm"></span></div>
+      </header>
+
+      <div class="goals">
+
+        <article class="goal" style="--gc:#7fb2d9">
+          <div class="head"><span class="num">1</span><span class="ln"></span></div>
+          <div class="row"><span class="tag">Результат</span><span class="ln"></span></div>
+          <ul>
+            <li><span class="box"></span><span class="ln"></span></li>
+            <li><span class="box"></span><span class="ln"></span></li>
+          </ul>
+        </article>
+
+        <article class="goal" style="--gc:#8fbf8f">
+          <div class="head"><span class="num">2</span><span class="ln"></span></div>
+          <div class="row"><span class="tag">Результат</span><span class="ln"></span></div>
+          <ul>
+            <li><span class="box"></span><span class="ln"></span></li>
+            <li><span class="box"></span><span class="ln"></span></li>
+          </ul>
+        </article>
+
+        <article class="goal" style="--gc:#e3b45a">
+          <div class="head"><span class="num">3</span><span class="ln"></span></div>
+          <div class="row"><span class="tag">Результат</span><span class="ln"></span></div>
+          <ul>
+            <li><span class="box"></span><span class="ln"></span></li>
+            <li><span class="box"></span><span class="ln"></span></li>
+          </ul>
+        </article>
+
+        <article class="goal" style="--gc:#d98e83">
+          <div class="head"><span class="num">4</span><span class="ln"></span></div>
+          <div class="row"><span class="tag">Результат</span><span class="ln"></span></div>
+          <ul>
+            <li><span class="box"></span><span class="ln"></span></li>
+            <li><span class="box"></span><span class="ln"></span></li>
+          </ul>
+        </article>
+
+        <article class="goal" style="--gc:#b39ddb">
+          <div class="head"><span class="num">5</span><span class="ln"></span></div>
+          <div class="row"><span class="tag">Результат</span><span class="ln"></span></div>
+          <ul>
+            <li><span class="box"></span><span class="ln"></span></li>
+            <li><span class="box"></span><span class="ln"></span></li>
+          </ul>
+        </article>
+
+      </div>
+
+      <p class="hint">«Результат» — как я пойму, что цель достигнута (измеримо). Шаги — промежуточные этапы, чекбокс закрашивается когда шаг сделан. Пустые карточки в конце года = цели не добавлялись.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

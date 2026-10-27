@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Важные события года — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .months { display: flex; flex-direction: column; gap: 1.5mm; flex: 1; justify-content: space-between; }
+  .mrow { display: flex; align-items: center; gap: 6px; height: 6mm; }
+  .mname {
+    flex: none;
+    width: 20mm;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--c-blue);
+  }
+  .mdate {
+    flex: none;
+    width: 14mm;
+    border-bottom: 1.3px solid var(--line-strong);
+    height: 14px;
+  }
+  .cont { padding-left: 20mm; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Год</div>
+          <h1>Важные события</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:14mm"></span> год</div>
+      </header>
+
+      <div class="months">
+        <!-- каждый месяц: 2 строки; при необходимости добавь строку от руки -->
+        <div class="m">
+          <div class="mrow"><span class="mname">Январь</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Февраль</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Март</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Апрель</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Май</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Июнь</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Июль</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Август</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Сентябрь</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Октябрь</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Ноябрь</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+        <div class="m">
+          <div class="mrow"><span class="mname">Декабрь</span><span class="mdate"></span><span class="ln"></span></div>
+          <div class="mrow cont"><span class="mdate"></span><span class="ln"></span></div>
+        </div>
+      </div>
+
+      <p class="hint">Только то, что захочешь вспомнить через годы. Даты — «день.месяц». Крупные события можно выделить цветом или значком ★.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

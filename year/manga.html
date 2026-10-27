@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Манга и манхва — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .stats { display: flex; gap: 4mm; font-size: 9px; color: #6f6858; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Год</div>
+          <h1>Манга и манхва</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:14mm"></span> год</div>
+      </header>
+
+      <table class="tbl">
+        <colgroup>
+          <col style="width:7mm"><col><col style="width:18mm"><col style="width:22mm">
+        </colgroup>
+        <thead>
+          <tr><th class="c">№</th><th>Название</th><th class="c">Дата*</th><th class="c">Оценка</th></tr>
+        </thead>
+        <tbody>
+          <tr class="ex"><td class="c">1</td><td>Берсерк</td><td class="c">15.06</td><td class="c stars">★★★★★</td></tr>
+          <tr><td class="c">2</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">3</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">4</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">5</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">6</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">7</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">8</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">9</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">10</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">11</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">12</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">13</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">14</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">15</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">16</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">17</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">18</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">19</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">20</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">21</td><td></td><td></td><td></td></tr>
+          <tr><td class="c">22</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="stats">
+        <span>Закончено: <span class="blank" style="min-width:10mm"></span></span>
+        <span>Читаю сейчас: <span class="blank" style="min-width:44mm"></span></span>
+      </div>
+
+      <p class="hint">*Дата — когда дочитал (или «+», если ещё читаешь). Сериалы и книги — на отдельных листах, тут только комиксы. Серая строка — пример.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

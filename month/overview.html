@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Обзор месяца — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 4.5mm; }
+  .cal td { height: 11.5mm; }
+  .task { display: flex; align-items: center; gap: 7px; height: 7mm; }
+  .evt  { display: flex; align-items: center; gap: 7px; height: 7mm; }
+  .evt .d {
+    flex: none; width: 13mm;
+    border-bottom: 1.3px solid var(--line-strong);
+    height: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц</div>
+          <h1>Обзор и план месяца</h1>
+        </div>
+        <div class="meta">
+          <span class="blank" style="min-width:22mm"></span> · <span class="blank" style="min-width:12mm"></span> г.<br>
+          <span style="font-size:8.5px">главное: <span class="blank" style="min-width:30mm"></span></span>
+        </div>
+      </header>
+
+      <section class="sec" style="--ac:#3e6b9e">
+        <h2>Календарь — впиши числа, закрашивай важное</h2>
+        <table class="cal">
+          <thead>
+            <tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th class="wk">сб</th><th class="wk">вс</th></tr>
+          </thead>
+          <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="sec" style="--ac:#4a7c59">
+        <h2>Задачи месяца</h2>
+        <div class="task"><span class="box"></span><span class="ln"></span></div>
+        <div class="task"><span class="box"></span><span class="ln"></span></div>
+        <div class="task"><span class="box"></span><span class="ln"></span></div>
+        <div class="task"><span class="box"></span><span class="ln"></span></div>
+        <div class="task"><span class="box"></span><span class="ln"></span></div>
+      </section>
+
+      <section class="sec" style="--ac:#b06f2e">
+        <h2>События и даты</h2>
+        <div class="evt"><span class="d"></span><span class="ln"></span></div>
+        <div class="evt"><span class="d"></span><span class="ln"></span></div>
+        <div class="evt"><span class="d"></span><span class="ln"></span></div>
+        <div class="evt"><span class="d"></span><span class="ln"></span></div>
+      </section>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

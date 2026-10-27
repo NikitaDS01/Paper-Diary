@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Фильмы и сериалы — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 4mm; }
+  .sec .tbl td { height: 22px; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Год</div>
+          <h1>Фильмы и сериалы</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:14mm"></span> год</div>
+      </header>
+
+      <section class="sec" style="--ac:#3e6b9e">
+        <h2>Фильмы</h2>
+        <table class="tbl">
+          <colgroup><col style="width:7mm"><col><col style="width:18mm"><col style="width:22mm"></colgroup>
+          <thead>
+            <tr><th class="c">№</th><th>Название</th><th class="c">Дата</th><th class="c">Оценка</th></tr>
+          </thead>
+          <tbody>
+            <tr class="ex"><td class="c">1</td><td>Начало</td><td class="c">12.01</td><td class="c stars">★★★★★</td></tr>
+            <tr><td class="c">2</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">3</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">4</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">5</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">6</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">7</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">8</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">9</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">10</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">11</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="sec" style="--ac:#4a7c59">
+        <h2>Сериалы</h2>
+        <table class="tbl">
+          <colgroup><col style="width:7mm"><col><col style="width:18mm"><col style="width:22mm"></colgroup>
+          <thead>
+            <tr><th class="c">№</th><th>Название</th><th class="c">Дата*</th><th class="c">Оценка</th></tr>
+          </thead>
+          <tbody>
+            <tr class="ex"><td class="c">1</td><td>Во все тяжкие — S1</td><td class="c">03.04</td><td class="c stars">★★★★★</td></tr>
+            <tr><td class="c">2</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">3</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">4</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">5</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">6</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">7</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">8</td><td></td><td></td><td></td></tr>
+            <tr><td class="c">9</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <p class="hint">*Дата — когда досмотрел. Сериалы можно вписывать по сезонам: «Название — S2». Серые строки — примеры.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
