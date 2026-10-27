@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Календарь событий — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3mm; }
+  .sec { padding: 7px 10px 8px; }
+
+  /* цветной маркер: один цвет = один тип дат, тот же цвет у строки списка */
+  .dot {
+    flex: none;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--c, var(--line-strong));
+  }
+  .legend { display: flex; flex-direction: column; gap: 3px; align-items: flex-end; }
+  .legend .row { font-size: 9px; }
+
+  .cal td { height: 9.5mm; }
+  /* пример: число обведено кружком — на бумаге кружок рисуешь своим цветом */
+  .cal td.ex-cell { text-align: center; vertical-align: middle; }
+  .cal .ex-circ {
+    display: inline-block;
+    min-width: 5.5mm; height: 5.5mm; line-height: 5.2mm;
+    border: 1.6px solid #beb5a2;
+    border-radius: 50%;
+    font-size: 8px; font-style: italic; color: #beb5a2;
+  }
+
+  .ev { display: flex; align-items: center; gap: 6px; height: 6.5mm; }
+  .ev .d {
+    flex: none; width: 9mm;
+    border-bottom: 1.3px solid var(--line-strong);
+    height: 14px;
+    line-height: 12px;
+    text-align: center;
+    font-size: 9px;
+  }
+  .ev .dash { flex: none; color: var(--line-strong); }
+  .ev .ln > i { font-style: italic; color: #beb5a2; font-size: 8.5px; }
+  .ev.ex .d, .ev.ex .ln { border-color: #ded7c8; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц</div>
+          <h1>Календарь событий</h1>
+        </div>
+        <div class="meta">
+          <span class="blank" style="min-width:22mm"></span> · <span class="blank" style="min-width:12mm"></span> г.<br>
+          <span class="legend">
+            <span class="row"><span class="dot" style="--c: var(--r)"></span>события</span>
+            <span class="row"><span class="dot" style="--c: var(--p)"></span>дни рождения</span>
+          </span>
+        </div>
+      </header>
+
+      <section class="sec" style="--ac: #3e6b9e">
+        <h2>Сетка месяца — впиши числа, обводи важное</h2>
+        <table class="cal">
+          <thead>
+            <tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th class="wk">сб</th><th class="wk">вс</th></tr>
+          </thead>
+          <tbody>
+            <tr><td></td><td></td><td></td><td class="ex-cell"><span class="ex-circ">4</span></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td class="ex-cell"><span class="ex-circ">11</span></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td class="ex-cell"><span class="ex-circ">17</span></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td class="ex-cell"><span class="ex-circ">22</span></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>События</h2>
+        <div class="ev ex" style="--c: #e5c3bf">
+          <span class="dot"></span><span class="d">11</span><span class="dash">—</span><span class="ln"><i>возвращение домой</i></span>
+        </div>
+        <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+      </section>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Дни рождения</h2>
+        <div class="ev" style="--c: var(--p)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--p)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--p)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+        <div class="ev" style="--c: var(--p)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
+      </section>
+
+      <p class="hint">Обводи число в сетке тем же цветом, что и точка у строки внизу, — так видно «тут есть дело». Типов дат может быть больше двух: добавь строку в легенду и свой цвет.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

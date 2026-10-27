@@ -52,4 +52,71 @@
       box.appendChild(c);
     }
   });
+
+  // полоска-линейка дней: <div data-strip="31" data-strip-letters> -> строка букв
+  // дней (пустая, подписываешь сам) + строка чисел 1..31
+  document.querySelectorAll('[data-strip]').forEach(function (box) {
+    var n = parseInt(box.dataset.strip, 10) || 31;
+    if (box.hasAttribute('data-strip-letters')) {
+      var letRow = document.createElement('div');
+      letRow.className = 'srow letters';
+      for (var l = 0; l < n; l++) {
+        var le = document.createElement('span');
+        le.className = 'sl';
+        letRow.appendChild(le);
+      }
+      box.appendChild(letRow);
+    }
+    var numRow = document.createElement('div');
+    numRow.className = 'srow';
+    for (var i = 1; i <= n; i++) {
+      var s = document.createElement('span');
+      s.className = 'sd';
+      s.textContent = i;
+      numRow.appendChild(s);
+    }
+    box.appendChild(numRow);
+  });
+
+  // ось Y графика: <div data-axis="10" data-axis-from="4" data-axis-step="2">
+  // подписи сверху вниз (старшая сверху), step по умолчанию 1
+  document.querySelectorAll('[data-axis]').forEach(function (box) {
+    var top = parseInt(box.dataset.axis, 10) || 10;
+    var bottom = parseInt(box.dataset.axisFrom, 10) || 1;
+    var step = parseInt(box.dataset.axisStep, 10) || 1;
+    for (var v = top; v >= bottom; v -= step) {
+      var s = document.createElement('span');
+      s.className = 'axv';
+      s.textContent = v;
+      box.appendChild(s);
+    }
+  });
+
+  // мини-календарь: <div data-mini-cal data-weeks="6" data-mark="2 6 9">
+  // -> шапка пн..вс + клетки; data-mark — номера клеток (по порядку), которые
+  //    показать серым примером; на бумаге такие клетки не рисуются
+  // чисел в клетках нет — месяц каждый раз новый, числа вписываются от руки
+  document.querySelectorAll('[data-mini-cal]').forEach(function (box) {
+    var weeks = parseInt(box.dataset.weeks, 10) || 6;
+    var marks = (box.dataset.mark || '').split(/[\s,]+/).filter(Boolean);
+    var head = document.createElement('div');
+    head.className = 'mc-head';
+    ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'].forEach(function (nm) {
+      var h = document.createElement('span');
+      h.className = 'mh' + (nm === 'сб' || nm === 'вс' ? ' wk' : '');
+      h.textContent = nm;
+      head.appendChild(h);
+    });
+    box.appendChild(head);
+
+    var body = document.createElement('div');
+    body.className = 'mc-body';
+    for (var i = 0; i < weeks * 7; i++) {
+      var c = document.createElement('span');
+      c.className = 'mc-c' + (i % 7 >= 5 ? ' wk' : '') +
+        (marks.indexOf(String(i + 1)) >= 0 ? ' ex-m' : '');
+      body.appendChild(c);
+    }
+    box.appendChild(body);
+  });
 })();
