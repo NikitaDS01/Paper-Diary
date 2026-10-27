@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Обложки книг — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .covers {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 4mm 4.5mm;
+  }
+  .cov {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2mm;
+    min-height: 0;
+  }
+  .cov .img {
+    flex: 1;
+    min-height: 0;
+    margin-inline: 1.5mm;
+    border: 1.3px solid var(--line-strong);
+    border-radius: 2mm;
+    background: #fff;
+  }
+  .cov .stars {
+    flex: none;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Год</div>
+          <h1>Обложки книг</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:14mm"></span> год</div>
+      </header>
+
+      <div class="covers" data-covers="16"></div>
+
+      <p class="hint">Обложку зарисуй или вклей, название подпиши на ней. Закрашивай звёзды: ★★★★★.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

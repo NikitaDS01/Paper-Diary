@@ -19,15 +19,6 @@
   .legend .row { font-size: 9px; }
 
   .cal td { height: 9.5mm; }
-  /* пример: число обведено кружком — на бумаге кружок рисуешь своим цветом */
-  .cal td.ex-cell { text-align: center; vertical-align: middle; }
-  .cal .ex-circ {
-    display: inline-block;
-    min-width: 5.5mm; height: 5.5mm; line-height: 5.2mm;
-    border: 1.6px solid #beb5a2;
-    border-radius: 50%;
-    font-size: 8px; font-style: italic; color: #beb5a2;
-  }
 
   .ev { display: flex; align-items: center; gap: 6px; height: 6.5mm; }
   .ev .d {
@@ -39,8 +30,6 @@
     font-size: 9px;
   }
   .ev .dash { flex: none; color: var(--line-strong); }
-  .ev .ln > i { font-style: italic; color: #beb5a2; font-size: 8.5px; }
-  .ev.ex .d, .ev.ex .ln { border-color: #ded7c8; }
 </style>
 </head>
 <body>
@@ -74,10 +63,10 @@
             <tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th class="wk">сб</th><th class="wk">вс</th></tr>
           </thead>
           <tbody>
-            <tr><td></td><td></td><td></td><td class="ex-cell"><span class="ex-circ">4</span></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td class="ex-cell"><span class="ex-circ">11</span></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td class="ex-cell"><span class="ex-circ">17</span></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td class="ex-cell"><span class="ex-circ">22</span></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
           </tbody>
@@ -86,9 +75,7 @@
 
       <section class="sec" style="--ac: #b06f2e">
         <h2>События</h2>
-        <div class="ev ex" style="--c: #e5c3bf">
-          <span class="dot"></span><span class="d">11</span><span class="dash">—</span><span class="ln"><i>возвращение домой</i></span>
-        </div>
+        <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
         <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
         <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>
         <div class="ev" style="--c: var(--r)"><span class="dot"></span><span class="d"></span><span class="dash">—</span><span class="ln"></span></div>

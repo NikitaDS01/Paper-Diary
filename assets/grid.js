@@ -53,6 +53,24 @@
     }
   });
 
+  // сетка обложек: <div data-covers="16" data-stars="5"> -> div.cov (рамка .img + звёзды)
+  document.querySelectorAll('[data-covers]').forEach(function (box) {
+    var n = parseInt(box.dataset.covers, 10) || 16;
+    var stars = parseInt(box.dataset.stars, 10) || 5;
+    for (var i = 1; i <= n; i++) {
+      var c = document.createElement('div');
+      c.className = 'cov';
+      var img = document.createElement('div');
+      img.className = 'img';
+      var st = document.createElement('div');
+      st.className = 'stars';
+      st.textContent = Array(stars + 1).join('☆');
+      c.appendChild(img);
+      c.appendChild(st);
+      box.appendChild(c);
+    }
+  });
+
   // полоска-линейка дней: <div data-strip="31" data-strip-letters> -> строка букв
   // дней (пустая, подписываешь сам) + строка чисел 1..31
   document.querySelectorAll('[data-strip]').forEach(function (box) {
@@ -92,13 +110,11 @@
     }
   });
 
-  // мини-календарь: <div data-mini-cal data-weeks="6" data-mark="2 6 9">
-  // -> шапка пн..вс + клетки; data-mark — номера клеток (по порядку), которые
-  //    показать серым примером; на бумаге такие клетки не рисуются
+  // мини-календарь: <div data-mini-cal data-weeks="6">
+  // -> шапка пн..вс + клетки
   // чисел в клетках нет — месяц каждый раз новый, числа вписываются от руки
   document.querySelectorAll('[data-mini-cal]').forEach(function (box) {
     var weeks = parseInt(box.dataset.weeks, 10) || 6;
-    var marks = (box.dataset.mark || '').split(/[\s,]+/).filter(Boolean);
     var head = document.createElement('div');
     head.className = 'mc-head';
     ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'].forEach(function (nm) {
@@ -113,8 +129,7 @@
     body.className = 'mc-body';
     for (var i = 0; i < weeks * 7; i++) {
       var c = document.createElement('span');
-      c.className = 'mc-c' + (i % 7 >= 5 ? ' wk' : '') +
-        (marks.indexOf(String(i + 1)) >= 0 ? ' ex-m' : '');
+      c.className = 'mc-c' + (i % 7 >= 5 ? ' wk' : '');
       body.appendChild(c);
     }
     box.appendChild(body);

@@ -221,11 +221,6 @@ body {
   vertical-align: top;
 }
 .tbl td.c, .tbl th.c { text-align: center; }
-.tbl tr.ex td {
-  color: #beb5a2;
-  font-style: italic;
-  background: #fbf8f1;
-}
 .stars { color: #c8a13d; letter-spacing: 1px; }
 
 /* ---------- сетки-клетки (трекеры) ---------- */
