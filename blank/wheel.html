@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Колесо сфер — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  /* лист без шапки и подписей: 8 секторов и уровни, названий и цифр нет —
+     сферы и шкалу придумываешь сам; геометрия как в month/balance.html */
+  .canvas { gap: 0; align-items: center; justify-content: center; }
+  .wheel {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  .wheel path { fill: #fff; stroke: var(--line-strong); stroke-width: 1.1; }
+  .wheel .ring { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 2.4; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas">
+      <svg class="wheel" viewBox="0 0 220 220" aria-hidden="true">
+        <path d="M110,110 L148.3,17.6 A100,100 0 0,1 202.4,71.7 Z"/>
+        <path d="M110,110 L202.4,71.7 A100,100 0 0,1 202.4,148.3 Z"/>
+        <path d="M110,110 L202.4,148.3 A100,100 0 0,1 148.3,202.4 Z"/>
+        <path d="M110,110 L148.3,202.4 A100,100 0 0,1 71.7,202.4 Z"/>
+        <path d="M110,110 L71.7,202.4 A100,100 0 0,1 17.6,148.3 Z"/>
+        <path d="M110,110 L17.6,148.3 A100,100 0 0,1 17.6,71.7 Z"/>
+        <path d="M110,110 L17.6,71.7 A100,100 0 0,1 71.7,17.6 Z"/>
+        <path d="M110,110 L71.7,17.6 A100,100 0 0,1 148.3,17.6 Z"/>
+        <circle class="ring" cx="110" cy="110" r="20"/>
+        <circle class="ring" cx="110" cy="110" r="40"/>
+        <circle class="ring" cx="110" cy="110" r="60"/>
+        <circle class="ring" cx="110" cy="110" r="80"/>
+      </svg>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

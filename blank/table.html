@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Чистая таблица — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  /* лист без шапки и подписей: таблица растягивается на всю высоту листа,
+     ряды делят свободное место поровну (6 колонок × 22 ряда) */
+  .canvas { gap: 0; }
+  .tgrid {
+    flex: 1;
+    min-height: 0;
+  }
+  .tgrid td { height: 6mm; padding: 0; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas">
+      <table class="tbl tgrid" data-tgrid="22x6"></table>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Точечная сетка — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  /* лист без шапки и подписей: точки рисуются фоном, DOM пустой;
+     шаг 5 мм, точка ставится в центр ячейки, чтобы крайние не липли к полям */
+  .canvas { gap: 0; }
+  .paper {
+    flex: 1;
+    min-height: 0;
+    background-color: #fff;
+    background-image: radial-gradient(circle at center, var(--line-strong) 0 .34mm, transparent .4mm 100%);
+    background-size: 5mm 5mm;
+    background-position: 2.5mm 2.5mm;
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas">
+      <div class="paper"></div>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

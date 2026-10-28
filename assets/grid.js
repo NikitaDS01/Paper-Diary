@@ -38,6 +38,22 @@
     }
   });
 
+  // таблица из пустых ячеек: <table data-tgrid="22x6"> -> tbody с 22 рядами по 6 <td>
+  document.querySelectorAll('[data-tgrid]').forEach(function (tbl) {
+    var dims = tbl.dataset.tgrid.split('x');
+    var rows = parseInt(dims[0], 10) || 1;
+    var cols = parseInt(dims[1], 10) || 1;
+    var body = document.createElement('tbody');
+    for (var r = 0; r < rows; r++) {
+      var tr = document.createElement('tr');
+      for (var c = 0; c < cols; c++) {
+        tr.appendChild(document.createElement('td'));
+      }
+      body.appendChild(tr);
+    }
+    tbl.appendChild(body);
+  });
+
   // сетка клеток: <div data-cells="31" data-cell="pages"> -> div.cell
   document.querySelectorAll('[data-cells]').forEach(function (box) {
     var n = parseInt(box.dataset.cells, 10) || 31;
@@ -50,6 +66,26 @@
       s.textContent = i;
       c.appendChild(s);
       box.appendChild(c);
+    }
+  });
+
+  // повторяющиеся строки: <div data-rows="22" data-row="check"> -> div.row x N
+  // kind: check (чекбокс + линия) | line (одна линия)
+  document.querySelectorAll('[data-rows]').forEach(function (box) {
+    var n = parseInt(box.dataset.rows, 10) || 1;
+    var kind = box.dataset.row || 'line';
+    for (var i = 0; i < n; i++) {
+      var r = document.createElement('div');
+      r.className = 'row';
+      if (kind === 'check') {
+        var b = document.createElement('span');
+        b.className = 'box';
+        r.appendChild(b);
+      }
+      var ln = document.createElement('span');
+      ln.className = 'ln';
+      r.appendChild(ln);
+      box.appendChild(r);
     }
   });
 

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Чек-лист — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  /* лист без шапки и подписей: строки делят всю высоту листа поровну */
+  .canvas { gap: 0; }
+  .rows {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-auto-rows: minmax(7mm, 1fr);
+  }
+  .rows .box { width: 4.5mm; height: 4.5mm; border-radius: 1mm; }
+  .rows .ln { height: 20px; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas">
+      <div class="rows" data-rows="22" data-row="check"></div>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
