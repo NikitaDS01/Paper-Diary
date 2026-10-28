@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Журнал обучения — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+  .sec > h2 { margin-bottom: 4px; }
+
+  .f { margin-top: 3.5px; }
+  .lab {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ln { display: block; height: 15px; }
+  .li { display: flex; align-items: center; gap: 5px; height: 7.6mm; }
+  .li .n { flex: none; width: 10px; text-align: right; font-size: 7.5px; color: var(--muted); }
+
+  /* журнал ошибок: три колонки на строку */
+  .bug { table-layout: fixed; }
+  .bug th { padding: 2px 3px; font-size: 7px; }
+  .bug td { height: 13mm; padding: 2px 4px; vertical-align: top; }
+  .bug td.e { font-size: 8px; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Работа · Обучение</div>
+          <h1>Журнал обучения</h1>
+        </div>
+        <div class="meta">тема <span class="blank" style="min-width:32mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #3e6b9e">
+        <h2>Разобрался</h2>
+        <div class="f">
+          <div class="lab">Хочу уметь · проверяемо, без «разобраться в целом»</div>
+          <div class="li"><i class="n">1</i><span class="ln"></span></div>
+          <div class="li"><i class="n">2</i><span class="ln"></span></div>
+          <div class="li"><i class="n">3</i><span class="ln"></span></div>
+        </div>
+        <div class="f">
+          <div class="lab">Как это работает · своими словами, как для собеседования</div>
+          <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Где уже применил · файл, сервис, задача</div>
+          <span class="ln"></span>
+        </div>
+      </section>
+
+      <section class="sec" style="--ac: #b06a55">
+        <h2>Ошибки и починки</h2>
+        <table class="tbl bug">
+          <colgroup><col style="width:36mm"><col><col style="width:36mm"></colgroup>
+          <thead>
+            <tr><th style="text-align:left">Симптом · текст ошибки</th><th style="text-align:left">Почему не работало</th><th style="text-align:left">Как починил</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="e">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td class="e">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td class="e">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td class="e">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Итог</h2>
+        <div class="row" style="height:7.6mm; font-size:9px">Что беру в проект: <span class="ln"></span></div>
+        <div class="row" style="height:7.6mm; font-size:9px">Что изучаю следующим: <span class="ln"></span></div>
+        <div class="row" style="height:7.6mm; font-size:9px">Источники · где брал: <span class="ln"></span></div>
+      </section>
+
+      <p class="hint">Один лист = одна тема: asyncio, Docker, NATS, SQLAlchemy — не смешивай. Колонка «Почему не работало» важнее «Как починил»: через месяц ты вспомнишь причину, а не команду. Пустая таблица ошибок значит, что ты читал, но не запускал.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
