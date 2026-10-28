@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Ретроспектива недели — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+  .sec > h2 { margin-bottom: 4px; }
+
+  .li { display: flex; align-items: center; gap: 5px; height: 8.4mm; }
+  .li .n { flex: none; width: 10px; text-align: right; font-size: 7.5px; color: var(--muted); }
+  .li .box { width: 11px; height: 11px; border-radius: 2px; }
+
+  .score { display: flex; align-items: center; gap: 6px; font-size: 9px; margin-top: 5px; }
+  .score .u {
+    flex: none;
+    display: flex;
+    gap: 3px;
+  }
+  .score .u i {
+    width: 13px; height: 13px;
+    border: 1.3px solid var(--line-strong);
+    border-radius: 3px;
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Неделя · Продуктивность</div>
+          <h1>Ретроспектива недели</h1>
+        </div>
+        <div class="meta">неделя <span class="blank" style="min-width:10mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Что сработало хорошо</h2>
+        <div class="li"><i class="n">1</i><span class="ln"></span></div>
+        <div class="li"><i class="n">2</i><span class="ln"></span></div>
+        <div class="li"><i class="n">3</i><span class="ln"></span></div>
+        <div class="li"><i class="n">4</i><span class="ln"></span></div>
+      </section>
+
+      <section class="sec" style="--ac: #b06a55">
+        <h2>Что пошло не так</h2>
+        <div class="li"><i class="n">1</i><span class="ln"></span></div>
+        <div class="li"><i class="n">2</i><span class="ln"></span></div>
+        <div class="li"><i class="n">3</i><span class="ln"></span></div>
+        <div class="li"><i class="n">4</i><span class="ln"></span></div>
+      </section>
+
+      <section class="sec" style="--ac: #3e6b9e">
+        <h2>Что изменю на следующей</h2>
+        <div class="li"><span class="box"></span><span class="ln"></span></div>
+        <div class="li"><span class="box"></span><span class="ln"></span></div>
+        <div class="li"><span class="box"></span><span class="ln"></span></div>
+      </section>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>Один эксперимент недели</h2>
+        <div class="row" style="height:7.5mm; font-size:9px">Пробую: <span class="ln"></span></div>
+        <div class="row" style="height:7.5mm; font-size:9px">По чему пойму, что вышло: <span class="ln"></span></div>
+        <div class="score">Оценка недели
+          <span class="u"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          · средняя за месяц <span class="blank" style="min-width:12mm"></span>
+        </div>
+      </section>
+
+      <p class="hint">Три вопроса — пять минут, не больше. Пустой третий блок — признак, что неделю просто переждали; хотя бы одно изменение обязательно. Чекбоксы отмечай в конце следующей недели, тогда видно, что реально дошло до дела.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Матрица Эйзенхауэра — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+
+  .quads {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm;
+  }
+  .sec > h2 { margin-bottom: 2px; }
+  .act { font-size: 7.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+  .li { display: flex; align-items: center; gap: 5px; height: 9mm; }
+  .li .n { flex: none; width: 10px; text-align: right; font-size: 7.5px; color: var(--muted); }
+
+  .tail .row { height: 8mm; font-size: 9px; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-orange)">
+      <header class="ph">
+        <div>
+          <div class="kick">Неделя · Продуктивность</div>
+          <h1>Матрица Эйзенхауэра</h1>
+        </div>
+        <div class="meta">неделя <span class="blank" style="min-width:10mm"></span></div>
+      </header>
+
+      <div class="quads">
+        <section class="sec" style="--ac: #4a7c59">
+          <h2>Срочно + важно</h2>
+          <div class="act">сделай первым · сегодня</div>
+          <div class="li"><i class="n">1</i><span class="ln"></span></div>
+          <div class="li"><i class="n">2</i><span class="ln"></span></div>
+          <div class="li"><i class="n">3</i><span class="ln"></span></div>
+          <div class="li"><i class="n">4</i><span class="ln"></span></div>
+          <div class="li"><i class="n">5</i><span class="ln"></span></div>
+          <div class="li"><i class="n">6</i><span class="ln"></span></div>
+        </section>
+
+        <section class="sec" style="--ac: #3e6b9e">
+          <h2>Важно, не срочно</h2>
+          <div class="act">зона роста · поставь дату</div>
+          <div class="li"><i class="n">1</i><span class="ln"></span></div>
+          <div class="li"><i class="n">2</i><span class="ln"></span></div>
+          <div class="li"><i class="n">3</i><span class="ln"></span></div>
+          <div class="li"><i class="n">4</i><span class="ln"></span></div>
+          <div class="li"><i class="n">5</i><span class="ln"></span></div>
+          <div class="li"><i class="n">6</i><span class="ln"></span></div>
+        </section>
+
+        <section class="sec" style="--ac: #b06f2e">
+          <h2>Срочно, не важно</h2>
+          <div class="act">отдай или сделай быстро и криво</div>
+          <div class="li"><i class="n">1</i><span class="ln"></span></div>
+          <div class="li"><i class="n">2</i><span class="ln"></span></div>
+          <div class="li"><i class="n">3</i><span class="ln"></span></div>
+          <div class="li"><i class="n">4</i><span class="ln"></span></div>
+          <div class="li"><i class="n">5</i><span class="ln"></span></div>
+          <div class="li"><i class="n">6</i><span class="ln"></span></div>
+        </section>
+
+        <section class="sec" style="--ac: #b06a55">
+          <h2>Не срочно, не важно</h2>
+          <div class="act">вычеркни и не делай</div>
+          <div class="li"><i class="n">1</i><span class="ln"></span></div>
+          <div class="li"><i class="n">2</i><span class="ln"></span></div>
+          <div class="li"><i class="n">3</i><span class="ln"></span></div>
+          <div class="li"><i class="n">4</i><span class="ln"></span></div>
+          <div class="li"><i class="n">5</i><span class="ln"></span></div>
+          <div class="li"><i class="n">6</i><span class="ln"></span></div>
+        </section>
+      </div>
+
+      <section class="sec tail" style="--ac: #3e6b9e">
+        <h2>Конец недели</h2>
+        <div class="row">Что переехало на следующую и почему: <span class="ln"></span></div>
+        <div class="row">Что отдал и что отменил совсем: <span class="ln"></span></div>
+      </section>
+
+      <p class="hint">Начинай с правого нижнего квадрата: вычеркнуть проще, чем разгребать. Если верхний левый квадрат пуст всю неделю — ты не в аврале, а в плановой работе, так и надо; если полон каждую неделю — план не работает.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
