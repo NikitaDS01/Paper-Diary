@@ -88,7 +88,7 @@
     return function () {
       let body = '';
       for (let i = 0; i < rows; i++) {
-        body += '    <tr data-days="' + DAYS + '"><td class="lbl">&nbsp;</td></tr>\n';
+        body += '    <tr data-days="' + DAYS + '" data-sum><td class="lbl">&nbsp;</td></tr>\n';
       }
       return '<table class="tbl hab">\n' +
         '  <colgroup>\n    <col style="width:26mm"><col span="31"><col style="width:8mm">\n  </colgroup>\n' +
