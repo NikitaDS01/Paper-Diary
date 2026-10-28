@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Перерывы и Pomodoro — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+  .sec > h2 { margin-bottom: 5px; }
+
+  .pomo { table-layout: fixed; }
+  .pomo th { padding: 2px 3px; font-size: 7px; }
+  .pomo td { height: 9.5mm; padding: 2px 4px; }
+  .pomo td.no { text-align: center; font-size: 8px; color: var(--muted); background: #fbf8f0; }
+  .pomo td.tm { background: #fbf8f0; }
+  .pomo td.bx { text-align: center; }
+  .pomo td.bx i {
+    display: inline-block;
+    width: 15px; height: 15px;
+    border: 1.4px solid var(--line-strong);
+    border-radius: 3px;
+    background: #fff;
+  }
+  .pomo td.bx i.big { width: 19px; height: 19px; border-radius: 10px; }
+  .pomo tr.brk td {
+    height: 7mm;
+    background: #f4efe3;
+    font-size: 8px;
+    color: #6f6858;
+  }
+
+  .body .row { height: 6.5mm; font-size: 9px; }
+  .body .row .box { width: 12px; height: 12px; border-radius: 3px; }
+
+  .tail .row { height: 7mm; font-size: 9px; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-orange)">
+      <header class="ph">
+        <div>
+          <div class="kick">Работа · Ритм</div>
+          <h1>Перерывы и Pomodoro</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:20mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>25 минут работаю · 5 встаю</h2>
+        <table class="tbl pomo">
+          <colgroup><col style="width:7mm"><col style="width:17mm"><col><col style="width:15mm"><col style="width:17mm"></colgroup>
+          <thead>
+            <tr><th>№</th><th>начал в</th><th style="text-align:left">Над чем работал</th><th>помидор</th><th>перерыв 5 мин</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="no">1</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">2</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">3</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">4</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr class="brk"><td colspan="4">длинный перерыв · 15–20 мин: встать, пройтись, смотреть в окно</td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">5</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">6</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">7</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr><td class="no">8</td><td class="tm">&nbsp;</td><td>&nbsp;</td><td class="bx"><i class="big"></i></td><td class="bx"><i></i></td></tr>
+            <tr class="brk"><td colspan="4">длинный перерыв · 15–20 мин: встать, пройтись, смотреть в окно</td><td class="bx"><i></i></td></tr>
+          </tbody>
+        </table>
+        <div class="tail">
+          <div class="row" style="margin-top:4px">Помидоров <span class="blank" style="min-width:10mm"></span> · длинных перерывов <span class="blank" style="min-width:10mm"></span> · дольше всего без отвлечения <span class="blank" style="min-width:16mm"></span></div>
+          <div class="row">Что мешало больше всего: <span class="ln"></span></div>
+        </div>
+      </section>
+
+      <section class="sec body" style="--ac: #4a7c59">
+        <h2>Тело за день</h2>
+        <div class="row"><span class="box"></span> Смотрел вдалеке хотя бы 3 раза — глаза отдохнули</div>
+        <div class="row"><span class="box"></span> Вставал и потянулся хотя бы раз в два часа</div>
+        <div class="row"><span class="box"></span> Обед был не за экраном</div>
+        <div class="row"><span class="box"></span> Лёг до полуночи</div>
+      </section>
+
+      <p class="hint">Один лист на день. Пропустил перерыв и сел обратно через два часа — это не подвиг, а минус к следующему дню: рисуй помидор серым. Ушёл в поток на целый час — не прерывайся ради клетки, допиши помидоры потом по памяти.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
