@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Личные ценности — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 4mm; }
+  .sec > h2 { margin-bottom: 5px; }
+
+  /* список ценностей: свой цвет + название + признак «живу по ней» */
+  .vals { table-layout: fixed; }
+  .vals th { padding: 2px 3px; font-size: 7px; }
+  .vals td { height: 12mm; padding: 2px 4px; }
+  .vals td.ci { text-align: center; }
+  /* .sw рассчитан на flex-родителя (.row); внутри td он inline и схлопывается */
+  .vals td.ci .sw { display: inline-block; }
+  .vals td.n { text-align: center; font-size: 9px; font-weight: 700; color: #6f6858; background: #f4efe3; }
+  /* короткая строка для подписи цвета и названия */
+  .vals .b {
+    display: inline-block;
+    min-width: 10mm;
+    height: 13px;
+    border-bottom: 1.3px solid var(--ink);
+    vertical-align: bottom;
+  }
+
+  /* сетка дней: строка = ценность из списка выше */
+  .val { table-layout: fixed; }
+  .val th.dnum { padding: 1px 0; font-size: 6px; font-weight: 500; }
+  .val th.lbl { text-align: left; width: 26mm; font-size: 7.5px; }
+  .val td { height: 28px; padding: 0; }
+  .val td.lbl {
+    background: #fbf8f0;
+    font-size: 8.5px;
+    padding: 2px 5px;
+    font-weight: 600;
+  }
+  .val td.lbl .n { color: var(--muted); margin-right: 4px; }
+  .val td.sum { background: #f4efe3; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц · Самопознание</div>
+          <h1>Личные ценности</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:22mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Мои ценности</h2>
+        <table class="tbl vals">
+          <colgroup><col style="width:8mm"><col style="width:6mm"><col style="width:32mm"><col></colgroup>
+          <thead>
+            <tr><th>цвет</th><th>№</th><th style="text-align:left">Ценность</th><th style="text-align:left">Как выглядит в деле</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="ci"><span class="sw"></span></td><td class="n">1</td><td><span class="b" style="min-width:24mm"></span></td><td>&nbsp;</td></tr>
+            <tr><td class="ci"><span class="sw"></span></td><td class="n">2</td><td><span class="b" style="min-width:24mm"></span></td><td>&nbsp;</td></tr>
+            <tr><td class="ci"><span class="sw"></span></td><td class="n">3</td><td><span class="b" style="min-width:24mm"></span></td><td>&nbsp;</td></tr>
+            <tr><td class="ci"><span class="sw"></span></td><td class="n">4</td><td><span class="b" style="min-width:24mm"></span></td><td>&nbsp;</td></tr>
+            <tr><td class="ci"><span class="sw"></span></td><td class="n">5</td><td><span class="b" style="min-width:24mm"></span></td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <table class="tbl val">
+        <colgroup>
+          <col style="width:26mm"><col span="31"><col style="width:8mm">
+        </colgroup>
+        <thead>
+          <tr data-days-head data-sum><th class="lbl">ценность / день</th></tr>
+        </thead>
+        <tbody>
+          <tr data-days data-sum><td class="lbl"><span class="n">1</span>&nbsp;</td></tr>
+          <tr data-days data-sum><td class="lbl"><span class="n">2</span>&nbsp;</td></tr>
+          <tr data-days data-sum><td class="lbl"><span class="n">3</span>&nbsp;</td></tr>
+          <tr data-days data-sum><td class="lbl"><span class="n">4</span>&nbsp;</td></tr>
+          <tr data-days data-sum><td class="lbl"><span class="n">5</span>&nbsp;</td></tr>
+        </tbody>
+      </table>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>Итог месяца</h2>
+        <div class="row" style="height:8mm; font-size:9px">Легче всего было жить по: <span class="ln"></span></div>
+        <div class="row" style="height:8mm; font-size:9px">Чаще всего отступал от: <span class="ln"></span></div>
+        <div class="row" style="height:8mm; font-size:9px">Что изменю в следующем месяце: <span class="ln"></span></div>
+      </section>
+
+      <p class="hint">Отмечай день своим цветом ценности, если за день было хотя бы одно действие по ней. Пустая строка в таблице — не провал, а сигнал, что ценность выбрана не своя или слишком абстрактная.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Разбор негативной установки — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+  .sec > h2 { margin-bottom: 4px; }
+
+  /* поле разбора: подпись + пунктирные строки */
+  .f { margin-top: 3.5px; }
+  .lab {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  /* вне flex-строки (.row) пунктир-подпись — inline, и его высота не работает;
+     здесь поля идут блоком, поэтому каждую строку делаем отдельной линией */
+  .ln { display: block; height: 15px; }
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 8px;
+    margin-top: 3.5px;
+  }
+  /* «верю на __%» справа от строки */
+  .pct {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 8.5px;
+    color: #6f6858;
+    white-space: nowrap;
+  }
+  .pct i {
+    display: inline-block;
+    width: 7mm;
+    height: 12px;
+    border-bottom: 1.3px solid var(--ink);
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Неделя · Самопознание</div>
+          <h1>Разбор негативной установки</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:14mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #3e6b9e">
+        <h2>Установка 1</h2>
+        <div class="f">
+          <div class="lab">Ситуация · где, когда, с кем</div>
+          <span class="ln"></span><span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Негативная установка · дословно, своими словами</div>
+          <div class="row"><span class="ln"></span><span class="pct">верю на <i></i>%</span></div>
+        </div>
+        <div class="f">
+          <div class="lab">Эмоция и тело · что чувствую</div>
+          <div class="row"><span class="ln"></span><span class="pct">сила <i></i>/10</span></div>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="lab">Что как будто подтверждает</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div>
+            <div class="lab">Что ей противоречит</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+        </div>
+        <div class="f">
+          <div class="lab">Новая поддерживающая установка · честная, а не «всё отлично»</div>
+          <span class="ln"></span>
+          <div class="row"><span class="ln"></span><span class="pct">верю на <i></i>%</span></div>
+        </div>
+        <div class="f">
+          <div class="lab">Одно действие на сегодня</div>
+          <div class="row"><span class="box"></span><span class="ln"></span></div>
+        </div>
+      </section>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>Установка 2</h2>
+        <div class="f">
+          <div class="lab">Ситуация · где, когда, с кем</div>
+          <span class="ln"></span><span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Негативная установка · дословно, своими словами</div>
+          <div class="row"><span class="ln"></span><span class="pct">верю на <i></i>%</span></div>
+        </div>
+        <div class="f">
+          <div class="lab">Эмоция и тело · что чувствую</div>
+          <div class="row"><span class="ln"></span><span class="pct">сила <i></i>/10</span></div>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="lab">Что как будто подтверждает</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div>
+            <div class="lab">Что ей противоречит</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+        </div>
+        <div class="f">
+          <div class="lab">Новая поддерживающая установка · честная, а не «всё отлично»</div>
+          <span class="ln"></span>
+          <div class="row"><span class="ln"></span><span class="pct">верю на <i></i>%</span></div>
+        </div>
+        <div class="f">
+          <div class="lab">Одно действие на сегодня</div>
+          <div class="row"><span class="box"></span><span class="ln"></span></div>
+        </div>
+      </section>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Если мысль повторяется</h2>
+        <div class="row" style="font-size:9px">Чаще всего всплывает установка: <span class="ln"></span></div>
+      </section>
+
+      <p class="hint">Факты пиши конкретные: не «я часто косячу», а «12 марта сорвал срок», «в прошлом месяце закрыл три задачи в срок». Если во вторую веру меньше 50% — формулировка слишком красивая, переделай ближе к правде.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Колесо баланса — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+
+  .top { display: flex; align-items: center; gap: 4mm; }
+  .wheel { flex: none; width: 71mm; height: 71mm; }
+  .wheel path { fill: #fff; stroke: var(--line-strong); stroke-width: 1.1; }
+  .wheel .ring { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 2.4; }
+  .wheel .num { font-size: 11px; font-weight: 700; fill: #b7ae9b; text-anchor: middle; }
+  .wheel .lvl { font-size: 8px; fill: #98917f; text-anchor: middle; }
+
+  /* подсказка рядом с колесом: как им пользоваться */
+  .how { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; font-size: 8.5px; line-height: 1.35; }
+  .how b { color: var(--ac, var(--c-blue)); }
+  .how .keys { display: flex; flex-direction: column; gap: 3px; margin-top: 2px; }
+  .how .keys .row { font-size: 8.5px; }
+  .dashk {
+    flex: none; width: 15px; height: 0;
+    border-top: 1.6px dashed var(--line-strong);
+  }
+  .fillk {
+    flex: none; width: 15px; height: 11px;
+    border: 1.3px solid var(--line-strong);
+    border-radius: 3px;
+    background: var(--b);
+  }
+
+  .sph { table-layout: fixed; }
+  .sph th { padding: 2px 3px; font-size: 7px; }
+  .sph td { height: 11mm; padding: 1px 4px; }
+  .sph td.n { text-align: center; background: #f4efe3; font-size: 8.5px; font-weight: 700; color: #6f6858; }
+  .sph td.lv { background: #fbf8f0; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц · Самопознание</div>
+          <h1>Колесо баланса</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:22mm"></span> · <span class="blank" style="min-width:12mm"></span> г.</div>
+      </header>
+
+      <div class="top">
+        <svg class="wheel" viewBox="0 0 220 220" aria-hidden="true">
+          <path d="M110,110 L148.3,17.6 A100,100 0 0,1 202.4,71.7 Z"/>
+          <path d="M110,110 L202.4,71.7 A100,100 0 0,1 202.4,148.3 Z"/>
+          <path d="M110,110 L202.4,148.3 A100,100 0 0,1 148.3,202.4 Z"/>
+          <path d="M110,110 L148.3,202.4 A100,100 0 0,1 71.7,202.4 Z"/>
+          <path d="M110,110 L71.7,202.4 A100,100 0 0,1 17.6,148.3 Z"/>
+          <path d="M110,110 L17.6,148.3 A100,100 0 0,1 17.6,71.7 Z"/>
+          <path d="M110,110 L17.6,71.7 A100,100 0 0,1 71.7,17.6 Z"/>
+          <path d="M110,110 L71.7,17.6 A100,100 0 0,1 148.3,17.6 Z"/>
+          <circle class="ring" cx="110" cy="110" r="20"/>
+          <circle class="ring" cx="110" cy="110" r="40"/>
+          <circle class="ring" cx="110" cy="110" r="60"/>
+          <circle class="ring" cx="110" cy="110" r="80"/>
+          <text class="num" x="110" y="25">1</text>
+          <text class="num" x="172.2" y="50.8">2</text>
+          <text class="num" x="198" y="113">3</text>
+          <text class="num" x="172.2" y="175.2">4</text>
+          <text class="num" x="110" y="201">5</text>
+          <text class="num" x="47.8" y="175.2">6</text>
+          <text class="num" x="22" y="113">7</text>
+          <text class="num" x="47.8" y="50.8">8</text>
+          <text class="lvl" x="95.8" y="96.8">2</text>
+          <text class="lvl" x="88.2" y="78.3">4</text>
+          <text class="lvl" x="80.5" y="59.9">6</text>
+          <text class="lvl" x="72.9" y="41.4">8</text>
+          <text class="lvl" x="67.5" y="28.5">10</text>
+        </svg>
+
+        <div class="how">
+          <div>Номера на секторе и в таблице — <b>одна и та же сфера</b>. Названия вписываешь в таблицу.</div>
+          <div><b>1</b> — у центра, <b>10</b> — на крае. Кольца внутри — это 2, 4, 6, 8.</div>
+          <div>Поставь точку на линии своего сектора и закрась сектор от центра до точки.</div>
+          <div class="keys">
+            <div class="row"><span class="dashk"></span> прошлый месяц — тонким карандашом</div>
+            <div class="row"><span class="fillk"></span> этот месяц — цветом</div>
+          </div>
+        </div>
+      </div>
+
+      <table class="tbl sph">
+        <colgroup>
+          <col style="width:7mm"><col><col style="width:14mm"><col style="width:14mm"><col>
+        </colgroup>
+        <thead>
+          <tr><th>№</th><th style="text-align:left">Сфера жизни</th><th>сейчас</th><th>хочу</th><th style="text-align:left">Один шаг в этом месяце</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="n">1</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">2</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">3</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">4</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">5</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">6</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">7</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+          <tr><td class="n">8</td><td>&nbsp;</td><td class="lv"></td><td class="lv"></td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+
+      <p class="hint">Сферы выбери свои и держи их одинаковыми весь год — иначе колеса разных месяцев не сравнить. Проваленный сектор — не повод для грусти: видно, куда пойти в первую очередь.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
