@@ -24,6 +24,8 @@
   }
   .tbox b { display: block; font-size: 10px; }
   .tbox .fill { display: block; border-bottom: 1.3px solid var(--ink); height: 16px; margin-top: 3px; }
+  .goals .tbox b { font-size: 9px; }
+  .goals small { display: block; font-size: 7px; color: #6f6858; margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -76,8 +78,6 @@
             <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
             <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
             <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
-            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
-            <tr><td>&nbsp;</td><td class="money"></td><td class="money"></td></tr>
           </tbody>
         </table>
       </section>
@@ -90,9 +90,15 @@
         <div class="tbox" style="border-color:var(--c-green)"><b>Остаток ±</b><span class="fill"></span></div>
       </div>
 
-      <div class="row" style="font-size:9px">Отложить в копилку: <span class="blank" style="min-width:24mm"></div>
+      <div class="row" style="font-size:9px">Отложить в копилку: <span class="blank" style="min-width:24mm"></span></div>
 
-      <p class="hint">«План» — сколько хочу потратить, «Факт» — сколько вышло.</p>
+      <div class="totals goals">
+        <div class="tbox" style="border-color:var(--c-blue)"><b>Цель: <span class="blank" style="min-width:18mm"></span></b><span class="fill"></span><small>отложено / нужно · до какого числа</small></div>
+        <div class="tbox" style="border-color:var(--c-blue)"><b>Цель: <span class="blank" style="min-width:18mm"></span></b><span class="fill"></span><small>отложено / нужно · до какого числа</small></div>
+        <div class="tbox" style="border-color:var(--c-blue)"><b>Цель: <span class="blank" style="min-width:18mm"></span></b><span class="fill"></span><small>отложено / нужно · до какого числа</small></div>
+      </div>
+
+      <p class="hint">«План» — сколько хочу потратить, «Факт» — сколько вышло. Отложенное в копилку остаток уменьшает, но тратой не считается. У цели всегда пиши сумму и срок: «ноутбук, 80 000, до июня» — иначе копилка обнуляется при первой радости.</p>
     </div>
   </section>
 </div>
