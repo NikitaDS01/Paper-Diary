@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Карточка персонажа — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 4mm; }
+  .sec > h2 { margin-bottom: 4px; }
+
+  .f { margin-top: 3.5px; }
+  .lab {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ln { display: block; height: 15px; }
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 8px;
+    margin-top: 3.5px;
+  }
+
+  /* арка в три колонки: начало → перелом → финал */
+  .arc {
+    display: grid;
+    grid-template-columns: 1fr 14px 1fr 14px 1fr;
+    align-items: start;
+    gap: 0 2px;
+    margin-top: 3.5px;
+  }
+  .arc .ar { font-size: 10px; color: var(--muted); align-self: center; text-align: center; }
+
+  /* шапка карточки: имя + роль */
+  .idrow {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .idrow .nm {
+    flex: 1;
+    min-width: 0;
+    height: 22px;
+    border-bottom: 1.6px solid var(--ink);
+  }
+  .idrow .rl {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 8.5px;
+    color: #6f6858;
+  }
+  .idrow .rl i {
+    display: inline-block;
+    width: 26mm;
+    height: 12px;
+    border-bottom: 1.3px solid var(--ink);
+  }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Творчество · Герои</div>
+          <h1>Карточка персонажа</h1>
+        </div>
+        <div class="meta">лист <span class="blank" style="min-width:12mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Персонаж 1</h2>
+        <div class="idrow">
+          <span class="nm"></span>
+          <span class="rl">в книге: <i></i></span>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="lab">Чего хочет · внешняя цель</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div>
+            <div class="lab">Чего боится · рана и что скрывает</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+        </div>
+        <div class="f">
+          <div class="lab">Во что не верит в себя · фраза, которую повторяет про себя</div>
+          <span class="ln"></span>
+        </div>
+        <div class="arc">
+          <div>
+            <div class="lab">Начало · с чем входит</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div class="ar">→</div>
+          <div>
+            <div class="lab">Перелом · что рушит старую логику</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div class="ar">→</div>
+          <div>
+            <div class="lab">Финал · чем платит</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+        </div>
+        <div class="f">
+          <div class="lab">Внешность · возраст, лицо, одежда, одна приметная деталь</div>
+          <span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Как говорит · темп, любимые слова, чего не скажет никогда</div>
+          <span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Что сорвёт план · и кто рядом, кто давит</div>
+          <span class="ln"></span>
+        </div>
+      </section>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>Персонаж 2</h2>
+        <div class="idrow">
+          <span class="nm"></span>
+          <span class="rl">в книге: <i></i></span>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="lab">Чего хочет · внешняя цель</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div>
+            <div class="lab">Чего боится · рана и что скрывает</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+        </div>
+        <div class="f">
+          <div class="lab">Во что не верит в себя · фраза, которую повторяет про себя</div>
+          <span class="ln"></span>
+        </div>
+        <div class="arc">
+          <div>
+            <div class="lab">Начало · с чем входит</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div class="ar">→</div>
+          <div>
+            <div class="lab">Перелом · что рушит старую логику</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+          <div class="ar">→</div>
+          <div>
+            <div class="lab">Финал · чем платит</div>
+            <span class="ln"></span><span class="ln"></span><span class="ln"></span>
+          </div>
+        </div>
+        <div class="f">
+          <div class="lab">Внешность · возраст, лицо, одежда, одна приметная деталь</div>
+          <span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Как говорит · темп, любимые слова, чего не скажет никогда</div>
+          <span class="ln"></span>
+        </div>
+        <div class="f">
+          <div class="lab">Что сорвёт план · и кто рядом, кто давит</div>
+          <span class="ln"></span>
+        </div>
+      </section>
+
+      <p class="hint">Пустое поле «Финал» — это и есть работа: пока не знаешь, чем персонаж заплатит, арка не собрана. Заводи новый лист на каждый новый текст, старые карточки держи при себе — герои переходят из книги в книгу.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>

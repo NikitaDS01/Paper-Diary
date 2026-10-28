@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Дневной план по словам — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+  .sec > h2 { margin-bottom: 5px; }
+  .sec .row { height: 7.5mm; font-size: 9px; }
+  .sec .leg .row { height: auto; }
+
+  /* клетки месяца: цвет = результат дня */
+  .cells { gap: 2.5px; }
+  .cell { min-height: 12mm; }
+
+  /* числовые строки по дням */
+  .wr { table-layout: fixed; }
+  .wr th.dnum { padding: 1px 0; font-size: 6px; font-weight: 500; }
+  .wr th.lbl { text-align: left; width: 22mm; font-size: 7.5px; }
+  .wr td { height: 24px; padding: 0; }
+  .wr td.lbl {
+    background: #fbf8f0;
+    font-size: 8.5px;
+    padding: 2px 5px;
+    font-weight: 600;
+  }
+  .wr td.sum { background: #f4efe3; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-green)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц · Письмо</div>
+          <h1>Дневной план по словам</h1>
+        </div>
+        <div class="meta"><span class="blank" style="min-width:22mm"></span></div>
+      </header>
+
+      <section class="sec" style="--ac: #4a7c59">
+        <h2>Правило дня</h2>
+        <div class="row">За день: <span class="blank" style="min-width:16mm"></span> слов · или <span class="blank" style="min-width:14mm"></span> минут</div>
+        <div class="row">Пишу в <span class="blank" style="min-width:14mm"></span> · место: <span class="blank" style="min-width:36mm"></span></div>
+        <div class="leg" style="margin-top:5px">
+          <div class="row"><span class="sw" style="background:var(--g)"></span><b>цель сделана</b></div>
+          <div class="row"><span class="sw" style="background:var(--y)"></span><b>писал(а), но меньше цели</b></div>
+          <div class="row"><span class="sw" style="background:var(--r)"></span><b>не писал(а)</b></div>
+        </div>
+      </section>
+
+      <div class="cells" data-cells="31"></div>
+
+      <table class="tbl wr">
+        <colgroup>
+          <col style="width:22mm"><col span="31"><col style="width:10mm">
+        </colgroup>
+        <thead>
+          <tr data-days-head data-sum><th class="lbl">день / факт</th></tr>
+        </thead>
+        <tbody>
+          <tr data-days data-sum><td class="lbl">слов</td></tr>
+          <tr data-days data-sum><td class="lbl">минут</td></tr>
+        </tbody>
+      </table>
+
+      <section class="sec" style="--ac: #b06f2e">
+        <h2>Итог месяца</h2>
+        <div class="row">Всего за месяц: <span class="blank" style="min-width:22mm"></span> слов · лучший день: <span class="blank" style="min-width:14mm"></span></div>
+        <div class="row">Красных дней подряд максимум: <span class="blank" style="min-width:12mm"></span></div>
+        <div class="row">Что мешало и как убираю: <span class="ln"></span></div>
+      </section>
+
+      <p class="hint">Клетку закрашивай по факту, а не по ощущениям: записал меньше нормы — жёлтая, даже если «день не задался». Три красных подряд — не повод бросать, повод на неделю уменьшить цель вдвое и вернуть ритм.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
