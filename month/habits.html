@@ -17,6 +17,11 @@
     font-weight: 600;
   }
   .hab td.sum { background: #f4efe3; }
+
+  /* вода: те же 31 колонка, но строки — стаканы, тонкие */
+  .water td { height: 3.6mm; }
+  .water td.lbl { font-size: 6.5px; font-weight: 500; padding: 0 5px; }
+  .water th.lbl { font-size: 7.5px; }
 </style>
 </head>
 <body>
@@ -45,8 +50,8 @@
           <tr data-days-head data-sum><th class="lbl">привычка / день</th></tr>
         </thead>
         <tbody>
-          <tr data-days data-sum><td class="lbl">&nbsp;</td></tr>
-          <tr data-days data-sum><td class="lbl">&nbsp;</td></tr>
+          <tr data-days data-sum><td class="lbl">активность 30 мин</td></tr>
+          <tr data-days data-sum><td class="lbl">зарядка / растяжка</td></tr>
           <tr data-days data-sum><td class="lbl">&nbsp;</td></tr>
           <tr data-days data-sum><td class="lbl">&nbsp;</td></tr>
           <tr data-days data-sum><td class="lbl">&nbsp;</td></tr>
@@ -56,10 +61,28 @@
         </tbody>
       </table>
 
+      <table class="tbl hab water">
+        <colgroup>
+          <col style="width:26mm"><col span="31"><col style="width:8mm">
+        </colgroup>
+        <thead>
+          <tr data-days-head data-sum><th class="lbl">вода · стаканов</th></tr>
+        </thead>
+        <tbody>
+          <tr data-days data-sum><td class="lbl">1</td></tr>
+          <tr data-days data-sum><td class="lbl">2</td></tr>
+          <tr data-days data-sum><td class="lbl">3</td></tr>
+          <tr data-days data-sum><td class="lbl">4</td></tr>
+          <tr data-days data-sum><td class="lbl">5</td></tr>
+          <tr data-days data-sum><td class="lbl">6</td></tr>
+          <tr data-days data-sum><td class="lbl">7</td></tr>
+          <tr data-days data-sum><td class="lbl">8</td></tr>
+        </tbody>
+      </table>
+
       <section class="sec" style="--ac:#4a7c59">
         <h2>Обозначения</h2>
         <div class="leg">
-          <div class="row"><span class="sw"></span><span class="blank" style="min-width:60mm"></span></div>
           <div class="row"><span class="sw"></span><span class="blank" style="min-width:60mm"></span></div>
           <div class="row"><span class="sw"></span><span class="blank" style="min-width:60mm"></span></div>
           <div class="row"><span class="sw"></span><span class="blank" style="min-width:60mm"></span></div>
@@ -73,7 +96,7 @@
         <div class="row" style="height:7mm; font-size:9px">Хочу подтянуть: <span class="ln"></span></div>
       </section>
 
-      <p class="hint">Лишние дни в конце месяца (30-й, 31-й) просто зачёркивай. Колонка «✓» — сколько дней из месяца выполнено. Пустые строки — свои привычки; цвета придумывай сам и записывай в обозначения.</p>
+      <p class="hint">Лишние дни в конце месяца (30-й, 31-й) просто зачёркивай. Колонка «✓» — сколько дней из месяца выполнено. В воде закрашивай стаканы сверху вниз, «✓» — сколько дней выпил норму. Пустые строки — свои привычки; цвета придумывай сам и записывай в обозначения.</p>
     </div>
   </section>
 </div>
