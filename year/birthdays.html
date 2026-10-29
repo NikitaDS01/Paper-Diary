@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Дни рождения — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .tbl tbody td { height: 6mm; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Информация</div>
+          <h1>Дни рождения</h1>
+        </div>
+      </header>
+
+      <table class="tbl" data-tgrid="24x13">
+        <colgroup>
+          <col style="width:45mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+          <col style="width:5mm">
+         </colgroup>
+        <thead>
+          <tr>
+            <th class="c">ФИО</th>
+            <th class="c">1</th>
+            <th class="c">2</th>
+            <th class="c">3</th>
+            <th class="c">4</th>
+            <th class="c">5</th>
+            <th class="c">6</th>
+            <th class="c">7</th>
+            <th class="c">8</th>
+            <th class="c">9</th>
+            <th class="c">10</th>
+            <th class="c">11</th>
+            <th class="c">12</th>
+          </tr>
+        </thead>
+      </table>
+
+      <p class="hint">В нужную ячейку месяца напиши число - это будет день в месяце день рождения</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
