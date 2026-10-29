@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Большой календарь показателя — макет A5</title>
+<link rel="stylesheet" href="../assets/pages.css">
+<style>
+  .canvas { gap: 3.5mm; }
+
+  .sec { padding: 7px 10px 8px; }
+
+  /* строка «показатель»: квадратик цвета + пунктир для названия */
+  .ttl {
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 4px;
+    font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--ac, var(--c-blue));
+  }
+  .ttl .sw { width: 11px; height: 11px; border-radius: 3px; }
+
+  /* крупная сетка месяца — те же классы, что рисует grid.js для data-mini-cal */
+  .mc { display: flex; flex-direction: column; gap: 2px; }
+  .mc-head, .mc-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+  .mc-head .mh {
+    text-align: center;
+    font-size: 7px; font-weight: 600;
+    text-transform: uppercase;
+    color: #98917f;
+  }
+  .mc-head .mh.wk { color: #b06a55; }
+  .mc-c {
+    border: 1.2px solid var(--line-strong);
+    border-radius: 5px;
+    height: 12.5mm;
+    background: #fff;
+  }
+  .mc-c.wk { background: #fbf8f0; }
+
+  .foot {
+    display: flex; align-items: center; gap: 5px;
+    margin-top: 5px;
+    font-size: 8px; color: #6f6858;
+  }
+  .foot .b {
+    display: inline-block;
+    min-width: 7mm;
+    border-bottom: 1.3px solid var(--line-strong);
+    height: 12px;
+  }
+
+  /* заметки растягиваются на всё оставшееся место листа */
+  .notes { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .notes .space { flex: 1; min-height: 0; }
+</style>
+</head>
+<body>
+<div class="bar no-print">
+  <a href="../index.html">← Оглавление</a>
+  <button onclick="print()">Печать A5</button>
+</div>
+
+<div class="sheet">
+  <section class="page">
+    <aside class="rail"><i></i><i></i><i></i></aside>
+    <div class="canvas" style="--ac: var(--c-blue)">
+      <header class="ph">
+        <div>
+          <div class="kick">Месяц</div>
+          <h1>Большой календарь</h1>
+        </div>
+        <div class="meta">
+          <span class="blank" style="min-width:22mm"></span> · <span class="blank" style="min-width:12mm"></span> г.
+        </div>
+      </header>
+
+      <section class="sec">
+        <div class="ttl"><span class="sw"></span><span class="ln"></span></div>
+        <div class="mc" data-mini-cal data-weeks="6"></div>
+        <div class="foot">всего <span class="b"></span> из <span class="b"></span> · правило закраски: <span class="ln"></span></div>
+      </section>
+
+      <section class="sec notes" style="--ac: var(--c-orange)">
+        <h2>Заметки</h2>
+        <div class="space"></div>
+      </section>
+
+      <p class="hint">Один лист = один показатель на весь месяц: впиши числа в клетки и закрась день маркером, когда показатель был. Низ листа свободен — заметки, выводы или мини-график.</p>
+    </div>
+  </section>
+</div>
+<script src="../assets/grid.js"></script>
+</body>
+</html>
